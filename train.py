@@ -105,7 +105,8 @@ def get_train_val_files(class_root, ratio=0.2):
 
 
 def train_main(data_root, epochs, batch_size, val_split, learning_rate, class_dict):
-    img_types = ["EPI", "FA", "MD"]
+    # img_types = ["EPI", "FA", "MD"]
+    img_types = ["FA"]
     train_dict = dict()
     print(f"Creating validation split with {val_split} * train data")
     for img_type in img_types:

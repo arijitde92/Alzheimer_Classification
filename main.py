@@ -34,7 +34,7 @@ parser.add_argument(
     '-m', '--model',
     type=str,
     default="Trained_Models",
-    help='Path to trained model',
+    help='Path to save trained model',
 )
 args = vars(parser.parse_args())
 
