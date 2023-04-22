@@ -73,3 +73,11 @@ def test_main(data_root: str, model_path: str, batch_size: int, class_dict: dict
         print(f"Starting testing")
         ground_truths, predictions, subject_names = test_function(model, test_loader, device)
         return ground_truths, predictions, subject_names
+
+
+if __name__ == "__main__":
+    DATA_PATH = "Data/Test"
+    MODEL_PATH = "Trained_Models"
+    BATCH_SIZE = 4
+    class_mapping = {"CN": 0, "EMCI": 1, "LMCI": 2, "AD": 3}
+    print(test_main(DATA_PATH, MODEL_PATH, BATCH_SIZE, class_mapping))

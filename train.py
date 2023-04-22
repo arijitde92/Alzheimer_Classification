@@ -12,6 +12,7 @@ from torch.utils.data import DataLoader
 from torch import optim
 from torchinfo import summary
 from os.path import join
+import torch.nn.functional as F
 
 
 def train_function(epochs, optimizer, model, model_name, loss_func, train_loader, val_loader, device):
@@ -41,7 +42,7 @@ def train_function(epochs, optimizer, model, model_name, loss_func, train_loader
             _, predicted = torch.max(pred, dim=1)
             #             print("Predictions: ", predicted)
             #             predicted = torch.unsqueeze(predicted, dim=1)   # To make dims of predicted and labels equal
-            loss = loss_func(pred, labels)
+            loss = loss_func(F.softmax(pred, dim=1), labels)
             loss.backward()
             optimizer.step()
             # .item returns the float value from loss tensor
